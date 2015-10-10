@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TestValidations.Models.IMDB>
+
+@{
+    ViewBag.Title = "MovieIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="clearfix">&nbsp;</div>
+<div class="clearfix">&nbsp;</div>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Movie</th>
+                    <th>Actor</th>
+                    <th>Producer</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.MovieTitle</td>
+                            <td>@item.Actor</td>
+                            <td>@item.Producer</td>
+                            <td>@item.ReleaseYear</td>
+                            <td>@item.Rating</td>
+                           
+                            <td>@Html.ActionLink("Delete", "DeleteMovie", "Home", new { id = @item.Id }, null)</td>
+                            <td>@Html.ActionLink("Update", "UpdateMovie", "Home", new { id = @item.Id }, null)</td>
+                        </tr>
+                    }
+                }
+            </tbody>    
+        </table>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    @Html.ActionLink("New movie", "AddMovie", "Home")
+</div>
+
+

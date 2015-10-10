@@ -1,0 +1,51 @@
+﻿@model TestValidations.Models.IMDB
+
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddMovie</h2>
+
+<div class="clearfix">&nbsp;</div>
+<div class="clearfix">&nbsp;</div>
+<div class="container">
+    <div class="table-responsive col-md-6 col-md-offset-3">
+        <table class="table table-bordered table-striped">
+            <tbody>
+                @using(Html.BeginForm("AddMovie", "Home", FormMethod.Post))
+                {
+                    <tr>
+                        <td class="col-md-4">Id</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.Id)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Movie Name</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.MovieTitle)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Actor</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.Actor)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Producer</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.Producer)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Release Year</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.ReleaseYear)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Rating</td>
+                        <td class="col-md-8">@Html.EditorFor(m => m.Rating)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right" colspan="2"><input type="submit" value="Save" class="btn btn-primary" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    @Html.ActionLink("Home", "MovieIndex", "Home")
+</div>

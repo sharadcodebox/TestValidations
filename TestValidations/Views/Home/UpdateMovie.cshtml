@@ -1,0 +1,44 @@
+﻿@model TestValidations.Models.IMDB
+
+@{
+    ViewBag.Title = "UpdateMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateMovie</h2>
+
+<div class="clearfix">&nbsp;</div>
+<div class="clearfix">&nbsp;</div>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Movie</th>
+                    <th>Actor</th>
+                    <th>Producer</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @using (Html.BeginForm("UpdateMovie", "Home", FormMethod.Post))
+                    {
+                        <td>@Html.EditorFor(m => m.Id)</td>
+                        <td>@Html.EditorFor(m => m.MovieTitle)</td>
+                        <td>@Html.EditorFor(m => m.Actor)</td>
+                        <td>@Html.EditorFor(m => m.Producer)</td>
+                        <td>@Html.EditorFor(m => m.ReleaseYear)</td>
+                        <td>@Html.EditorFor(m => m.Rating)</td>
+
+                        <td><input type="submit" value="Update" class="btn btn-primary" /></td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
